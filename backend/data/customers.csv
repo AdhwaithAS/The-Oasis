@@ -1,0 +1,6 @@
+id,name,email,phone
+CUST-105,"Direct Guest","direct.guest@example.com","9847123456"
+CUST-104,"Guest One","guest.one@example.com","9876543210"
+CUST-103,"Adhwaith AS","admin@hotel.com","+91 98471 23456"
+CUST-102,"Sarah Connor","sarah.c@cyberdyne.io","+1 555-0199"
+CUST-101,"John Doe","john.doe@example.com","+1 555-0101"

@@ -1,0 +1,8 @@
+id,name,email,password,phone,role,createdAt
+USER-6,"Guest One","guest.one@example.com","password123","9876543210",GUEST,2026-10-11T15:48:03.189746346
+USER-4,"Sophia Laurent","sophia@paris.org","secretpassword","+1 555-908-1122",GUEST,2026-09-27T17:41:08.433935667
+USER-7,"Reception Staff","reception@hotel.com","staffpass123","9847199999",STAFF,2026-10-11T15:48:20.491670683
+USER-1,"Adhwaith AS","admin@hotel.com","admin123","+91 98471 23456",ADMIN,2026-09-27T17:40:49.363229673
+USER-2,"Arjun B","staff@hotel.com","staff123","+91 98472 34567",STAFF,2026-09-27T17:40:49.363349452
+USER-3,"Kristin Watson","guest@hotel.com","guest123","+1 555-432-8765",GUEST,2026-09-27T17:40:49.363362534
+USER-5,"Alireza MP","ialirezamp@gmail.com","password123","+1 555-019-2831",GUEST,2026-09-27T18:10:50.230026446

@@ -1,0 +1,8 @@
+roomNumber,roomType,basePricePerNight,capacity,isAvailable,description
+101,Standard,110.00,2,true,"Comfort Queen Room on 1st Floor overlooking courtyard garden."
+102,Standard,110.00,2,true,"Deluxe Twin Queen Beds with ergonomic workspace and coffee bar."
+103,Standard,115.00,2,true,"Quiet Standard Corner Room with extra natural sunlight and desk."
+104,Standard,120.00,2,true,"Accessible Ground Floor Standard Room with walk-in shower."
+201,Suite,240.00,4,true,"Executive Presidential Suite with private jacuzzi and skyline terrace."
+202,Suite,230.00,4,true,"Royal Penthouse Suite with master king bed, lounge bar, and butler access."
+203,Suite,220.00,3,true,"Family Grand Suite with dual balconies, jacuzzi tub, and kid's lounge."

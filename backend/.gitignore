@@ -1,0 +1,32 @@
+# Java compilation output
+bin/
+*.class
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+
+# Environment & credentials
+.env
+*.env
+*.pem
+*.key
+
+# Application runtime logs
+logs/
+*.log
+
+# Crash logs
+hs_err_pid*
+replay_pid*
+.attach_pid*
+
+# IDE configurations
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/

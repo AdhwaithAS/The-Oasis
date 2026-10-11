@@ -1,0 +1,4 @@
+reservationId,customerId,roomNumber,checkInDate,checkOutDate,status,totalAmount,createdAt,specialRequests
+RES-1003,CUST-105,101,2026-10-15,2026-10-18,BOOKED,363.00,2026-10-11T16:24:53.294734578,"Quiet corner room"
+RES-1001,CUST-101,101,2026-10-11,2026-10-14,CHECKED_OUT,363.00,2026-10-11T16:24:53.295430812,"Late check-in requested (after 8 PM)"
+RES-1002,CUST-102,201,2026-10-10,2026-10-13,CHECKED_IN,872.10,2026-10-11T16:24:53.295630873,"Champagne on arrival, high-floor preference"
