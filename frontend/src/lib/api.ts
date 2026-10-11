@@ -1,8 +1,7 @@
 import { Bill, BookingPayload, HotelStats, Reservation, Room, UpdateReservationPayload } from './types';
 
 // Points to relative /api which next.config.js proxies to Java backend on http://localhost:8080/api
-// Or falls back to direct URL if executed outside browser
-const BASE_URL = typeof window !== 'undefined' ? '' : 'http://localhost:8080';
+const BASE_URL = typeof window !== 'undefined' ? '' : (process.env.BACKEND_URL || 'http://localhost:8080');
 
 function getAuthHeaders(includeContentType = true): HeadersInit {
   const headers: Record<string, string> = {};
