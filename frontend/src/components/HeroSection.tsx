@@ -51,7 +51,7 @@ export default function HeroSection({
     }}>
       {/* Main Luxury Banner */}
       <div className="white-card" style={{
-        padding: '36px 32px',
+        padding: 'clamp(20px, 3.5vw, 36px) clamp(16px, 3.5vw, 32px)',
         position: 'relative',
         overflow: 'hidden',
         background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
@@ -87,7 +87,7 @@ export default function HeroSection({
           </div>
 
           <h2 style={{
-            fontSize: '2.4rem',
+            fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
             fontWeight: 800,
             color: 'var(--text-title)',
             letterSpacing: '-0.03em',
@@ -115,7 +115,7 @@ export default function HeroSection({
           boxShadow: 'var(--shadow-card)',
           border: '1px solid var(--border-light)',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr)) auto',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))',
           gap: '14px',
           alignItems: 'center',
           position: 'relative',

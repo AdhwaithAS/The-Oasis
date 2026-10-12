@@ -110,22 +110,22 @@ export default function GuestLandingPage({
         maxWidth: '1360px',
         width: '100%',
         margin: '0 auto',
-        padding: '20px 24px 12px',
+        padding: '14px 16px 10px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        gap: '16px',
+        gap: '12px',
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        background: 'rgba(251, 251, 252, 0.92)',
+        background: 'rgba(251, 251, 252, 0.95)',
         backdropFilter: 'blur(20px)',
       }}>
         {/* Left: Brand + Stays / Experiences Pills */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={scrollToTop}>
-            <span style={{ fontSize: '1.45rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#0f172a' }}>
+            <span style={{ fontSize: '1.35rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#0f172a' }}>
               The Oasis
             </span>
           </div>
@@ -134,19 +134,19 @@ export default function GuestLandingPage({
             display: 'inline-flex',
             alignItems: 'center',
             background: '#f1f3f7',
-            padding: '4px',
+            padding: '3px',
             borderRadius: '9999px',
             gap: '2px',
           }}>
             <button
               onClick={() => setNavTab('stays')}
               style={{
-                padding: '6px 16px',
+                padding: '5px 14px',
                 borderRadius: '9999px',
                 border: 'none',
                 background: navTab === 'stays' ? '#111827' : 'transparent',
                 color: navTab === 'stays' ? '#ffffff' : '#475569',
-                fontSize: '0.82rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
                 cursor: 'pointer',
                 transition: 'all 0.15s ease',
@@ -157,12 +157,12 @@ export default function GuestLandingPage({
             <button
               onClick={() => setNavTab('experiences')}
               style={{
-                padding: '6px 16px',
+                padding: '5px 14px',
                 borderRadius: '9999px',
                 border: 'none',
                 background: navTab === 'experiences' ? '#111827' : 'transparent',
                 color: navTab === 'experiences' ? '#ffffff' : '#475569',
-                fontSize: '0.82rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
                 cursor: 'pointer',
                 transition: 'all 0.15s ease',
@@ -174,11 +174,12 @@ export default function GuestLandingPage({
         </div>
 
         {/* Right: Monetize / Lookup / Staff Portal + Avatar Badge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <a
             href="#lookup"
+            className="hide-on-mobile"
             style={{
-              fontSize: '0.86rem',
+              fontSize: '0.84rem',
               fontWeight: 600,
               color: '#334155',
               textDecoration: 'none',
@@ -191,27 +192,28 @@ export default function GuestLandingPage({
           <Link
             href="/login"
             style={{
-              fontSize: '0.86rem',
+              fontSize: '0.84rem',
               fontWeight: 600,
               color: '#334155',
               textDecoration: 'none',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
+              gap: '5px',
             }}
           >
             <LogIn size={15} style={{ color: '#64748b' }} />
-            <span>Staff Portal</span>
+            <span className="hide-on-mobile">Staff Portal</span>
+            <span className="show-on-mobile">Staff</span>
           </Link>
 
-          {/* Avatar Profile Indicator from Reference */}
+          {/* Avatar Profile Indicator */}
           <div
             onClick={() => onOpenBooking(null)}
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '8px',
-              padding: '5px 12px 5px 6px',
+              gap: '6px',
+              padding: '4px 10px 4px 5px',
               borderRadius: '9999px',
               border: '1px solid #e2e8f0',
               background: '#ffffff',
@@ -220,20 +222,20 @@ export default function GuestLandingPage({
             }}
           >
             <div style={{
-              width: '28px',
-              height: '28px',
+              width: '26px',
+              height: '26px',
               borderRadius: '50%',
               background: '#111827',
               color: '#ffffff',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '0.74rem',
+              fontSize: '0.72rem',
               fontWeight: 800,
             }}>
               1
             </div>
-            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#0f172a' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0f172a' }}>
               Book Stay
             </span>
           </div>
@@ -243,24 +245,26 @@ export default function GuestLandingPage({
       {/* =========================================================================
           2. HERO SECTION (Matches Reference Panoramic Pod Visual & Search Pill)
           ========================================================================= */}
-      <section style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '10px 24px 40px' }}>
+      <section style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '10px 16px 36px' }}>
         {/* Caption Row */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: '14px',
-          fontSize: '0.86rem',
+          marginBottom: '12px',
+          fontSize: '0.84rem',
           color: '#64748b',
           fontWeight: 600,
+          flexWrap: 'wrap',
+          gap: '8px',
         }}>
           <div>Find unique stays that work for you</div>
           <div style={{
-            padding: '4px 12px',
+            padding: '3px 10px',
             borderRadius: '9999px',
             border: '1px solid #e2e8f0',
             background: '#ffffff',
-            fontSize: '0.78rem',
+            fontSize: '0.74rem',
             fontWeight: 700,
             color: '#0f172a',
           }}>
@@ -272,101 +276,108 @@ export default function GuestLandingPage({
         <div style={{
           position: 'relative',
           width: '100%',
-          height: '540px',
-          borderRadius: '32px',
+          minHeight: '440px',
+          borderRadius: 'clamp(20px, 4vw, 32px)',
           overflow: 'hidden',
           boxShadow: '0 20px 50px -10px rgba(15, 23, 42, 0.18)',
           backgroundImage: 'url(/images/wanderlust_hero.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          padding: 'clamp(20px, 4vw, 40px)',
         }}>
           {/* Subtle gradient vignette */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.65) 100%)',
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.7) 100%)',
           }} />
 
-          {/* Headline (Lower-Left from Image) */}
+          {/* Lower Content Row */}
           <div style={{
-            position: 'absolute',
-            bottom: '36px',
-            left: '40px',
+            position: 'relative',
             zIndex: 10,
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '20px',
+            width: '100%',
           }}>
-            <h1 style={{
-              fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
-              fontWeight: 900,
-              lineHeight: 1.08,
-              letterSpacing: '-0.03em',
-              color: '#ffffff',
-              textShadow: '0 4px 16px rgba(0,0,0,0.4)',
-              margin: 0,
-            }}>
-              Stay Unique,<br />Travel Freely.
-            </h1>
-          </div>
+            {/* Headline */}
+            <div>
+              <h1 style={{
+                fontSize: 'clamp(2.1rem, 5.5vw, 3.8rem)',
+                fontWeight: 900,
+                lineHeight: 1.08,
+                letterSpacing: '-0.03em',
+                color: '#ffffff',
+                textShadow: '0 4px 16px rgba(0,0,0,0.4)',
+                margin: 0,
+              }}>
+                Stay Unique,<br />Travel Freely.
+              </h1>
+            </div>
 
-          {/* Embedded Floating Pill Search Bar (Lower-Right from Image) */}
-          <div style={{
-            position: 'absolute',
-            bottom: '36px',
-            right: '40px',
-            zIndex: 10,
-          }}>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                onOpenBooking(null);
-              }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                padding: '8px 8px 8px 24px',
-                borderRadius: '9999px',
-                background: 'rgba(255, 255, 255, 0.78)',
-                backdropFilter: 'blur(24px)',
-                border: '1px solid rgba(255, 255, 255, 0.9)',
-                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.2)',
-              }}
-            >
-              <input
-                type="text"
-                value={heroSearch}
-                onChange={(e) => setHeroSearch(e.target.value)}
-                placeholder="Search destinations"
-                style={{
-                  border: 'none',
-                  outline: 'none',
-                  background: 'transparent',
-                  color: '#0f172a',
-                  fontSize: '0.94rem',
-                  fontWeight: 600,
-                  width: '180px',
+            {/* Embedded Floating Pill Search Bar */}
+            <div style={{ width: 'auto', maxWidth: '100%' }}>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  onOpenBooking(null);
                 }}
-              />
-              <button
-                type="submit"
                 style={{
-                  display: 'inline-flex',
+                  display: 'flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  padding: '10px 20px',
+                  gap: '8px',
+                  padding: '6px 6px 6px 18px',
                   borderRadius: '9999px',
-                  border: 'none',
-                  background: '#111827',
-                  color: '#ffffff',
-                  fontSize: '0.86rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                  background: 'rgba(255, 255, 255, 0.88)',
+                  backdropFilter: 'blur(24px)',
+                  border: '1px solid rgba(255, 255, 255, 0.95)',
+                  boxShadow: '0 12px 36px rgba(0, 0, 0, 0.2)',
+                  maxWidth: '100%',
                 }}
               >
-                <span>Search</span>
-                <Search size={14} />
-              </button>
-            </form>
+                <input
+                  type="text"
+                  value={heroSearch}
+                  onChange={(e) => setHeroSearch(e.target.value)}
+                  placeholder="Search destinations"
+                  style={{
+                    border: 'none',
+                    outline: 'none',
+                    background: 'transparent',
+                    color: '#0f172a',
+                    fontSize: '0.92rem',
+                    fontWeight: 600,
+                    width: 'clamp(130px, 30vw, 180px)',
+                  }}
+                />
+                <button
+                  type="submit"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    padding: '9px 18px',
+                    borderRadius: '9999px',
+                    border: 'none',
+                    background: '#111827',
+                    color: '#ffffff',
+                    fontSize: '0.84rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                  }}
+                >
+                  <span>Search</span>
+                  <Search size={14} />
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
@@ -378,7 +389,7 @@ export default function GuestLandingPage({
         maxWidth: '1360px',
         width: '100%',
         margin: '0 auto',
-        padding: '50px 24px 60px',
+        padding: '36px 16px 44px',
         textAlign: 'center',
       }}>
         {/* Small Centered "About us" text */}
@@ -388,20 +399,20 @@ export default function GuestLandingPage({
           color: '#64748b',
           textTransform: 'uppercase',
           letterSpacing: '0.06em',
-          marginBottom: '16px',
+          marginBottom: '14px',
         }}>
           About us
         </div>
 
         {/* Large Editorial Headline */}
         <h2 style={{
-          fontSize: 'clamp(1.8rem, 3.8vw, 2.75rem)',
+          fontSize: 'clamp(1.6rem, 3.8vw, 2.75rem)',
           fontWeight: 800,
           lineHeight: 1.25,
           letterSpacing: '-0.03em',
           color: '#0f172a',
           maxWidth: '820px',
-          margin: '0 auto 36px',
+          margin: '0 auto 28px',
         }}>
           Each space is thoughtfully curated to spark connection and create lasting memories.
         </h2>
@@ -410,10 +421,11 @@ export default function GuestLandingPage({
         <div style={{
           display: 'inline-flex',
           alignItems: 'center',
-          gap: '12px',
+          gap: '10px',
           flexWrap: 'wrap',
           justifyContent: 'center',
-          marginBottom: '40px',
+          marginBottom: '32px',
+          maxWidth: '100%',
         }}>
           <button
             onClick={() => setCategory('Hotels')}
@@ -459,13 +471,13 @@ export default function GuestLandingPage({
         {/* 3-Image Architectural Montage from Reference */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '20px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+          gap: '16px',
           maxWidth: '980px',
           margin: '0 auto',
         }}>
           <div style={{
-            height: '240px',
+            height: 'clamp(180px, 24vw, 240px)',
             borderRadius: '24px',
             overflow: 'hidden',
             backgroundImage: 'url(/images/dest_sydney.jpg)',
@@ -474,7 +486,7 @@ export default function GuestLandingPage({
             boxShadow: '0 10px 25px rgba(0,0,0,0.06)',
           }} />
           <div style={{
-            height: '240px',
+            height: 'clamp(180px, 24vw, 240px)',
             borderRadius: '24px',
             overflow: 'hidden',
             backgroundImage: 'url(/images/stay_domes.jpg)',
@@ -483,7 +495,7 @@ export default function GuestLandingPage({
             boxShadow: '0 10px 25px rgba(0,0,0,0.06)',
           }} />
           <div style={{
-            height: '240px',
+            height: 'clamp(180px, 24vw, 240px)',
             borderRadius: '24px',
             overflow: 'hidden',
             backgroundImage: 'url(/images/stay_pod.jpg)',
@@ -497,13 +509,13 @@ export default function GuestLandingPage({
       {/* =========================================================================
           4. "NEARBY" CURATED STAYS (Matches 3-Column Image Cards Exactly)
           ========================================================================= */}
-      <section style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '20px 24px 70px' }}>
+      <section style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '16px 16px 54px' }}>
         {/* Nearby Header Row */}
         <div style={{
           display: 'flex',
           alignItems: 'flex-start',
-          gap: '24px',
-          marginBottom: '32px',
+          gap: '16px',
+          marginBottom: '24px',
           flexWrap: 'wrap',
         }}>
           <div style={{
@@ -519,7 +531,7 @@ export default function GuestLandingPage({
           </div>
 
           <p style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)',
             fontWeight: 700,
             color: '#1e293b',
             maxWidth: '780px',
@@ -534,8 +546,8 @@ export default function GuestLandingPage({
         {/* 3 Stays Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '24px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: '20px',
         }}>
           {/* Card 1: Near the beach */}
           <div
@@ -546,7 +558,7 @@ export default function GuestLandingPage({
             }}
           >
             <div style={{
-              height: '380px',
+              height: 'clamp(260px, 34vw, 380px)',
               borderRadius: '28px',
               overflow: 'hidden',
               backgroundImage: 'url(/images/stay_domes.jpg)',
@@ -597,7 +609,7 @@ export default function GuestLandingPage({
             }}
           >
             <div style={{
-              height: '380px',
+              height: 'clamp(260px, 34vw, 380px)',
               borderRadius: '28px',
               overflow: 'hidden',
               backgroundImage: 'url(/images/stay_pod.jpg)',
@@ -673,7 +685,7 @@ export default function GuestLandingPage({
             }}
           >
             <div style={{
-              height: '380px',
+              height: 'clamp(260px, 34vw, 380px)',
               borderRadius: '28px',
               overflow: 'hidden',
               backgroundImage: 'url(/images/stay_pool.jpg)',
@@ -722,18 +734,19 @@ export default function GuestLandingPage({
       {/* =========================================================================
           5. FEATURED DESTINATION & FLOATING GLASS BOOKING CARD (Signature Element)
           ========================================================================= */}
-      <section style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '20px 24px 80px' }}>
+      <section style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '16px 16px 64px' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
-          gap: '48px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: 'clamp(24px, 4vw, 48px)',
           alignItems: 'center',
         }}>
           {/* Left Column: Architectural Photo with Floating Frosted Glass Booking Card */}
           <div style={{
             position: 'relative',
-            height: '560px',
-            borderRadius: '32px',
+            height: 'auto',
+            minHeight: 'clamp(480px, 60vh, 560px)',
+            borderRadius: 'clamp(20px, 4vw, 32px)',
             overflow: 'hidden',
             backgroundImage: 'url(/images/dest_sydney.jpg)',
             backgroundSize: 'cover',
@@ -742,19 +755,19 @@ export default function GuestLandingPage({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '24px',
+            padding: 'clamp(14px, 3vw, 24px)',
           }}>
-            {/* The Floating Translucent Booking Widget (Directly Matches Reference Image!) */}
+            {/* The Floating Translucent Booking Widget */}
             <div
               className="glass-floating"
               style={{
                 width: '100%',
                 maxWidth: '360px',
-                padding: '28px 24px',
+                padding: 'clamp(20px, 3vw, 28px) clamp(16px, 2.5vw, 24px)',
                 color: '#0f172a',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}>
                 <div style={{
                   width: '32px',
                   height: '32px',
@@ -771,8 +784,13 @@ export default function GuestLandingPage({
                 </span>
               </div>
 
-              {/* Check-in & Check-out 2-column input pills */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '14px' }}>
+              {/* Check-in & Check-out inputs */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 120px), 1fr))',
+                gap: '10px',
+                marginBottom: '14px',
+              }}>
                 <div style={{
                   background: '#ffffff',
                   borderRadius: '16px',
@@ -828,7 +846,7 @@ export default function GuestLandingPage({
                 borderRadius: '16px',
                 padding: '12px 14px',
                 border: '1px solid #e2e8f0',
-                marginBottom: '20px',
+                marginBottom: '18px',
               }}>
                 <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase' }}>Guest and Rooms</div>
                 <select
@@ -857,7 +875,7 @@ export default function GuestLandingPage({
                 onClick={() => onOpenBooking(suiteRoom)}
                 style={{
                   width: '100%',
-                  padding: '14px',
+                  padding: '13px',
                   borderRadius: '9999px',
                   border: 'none',
                   background: '#111827',
@@ -876,11 +894,11 @@ export default function GuestLandingPage({
 
           {/* Right Column: Sydney Details & Thumbnails from Image */}
           <div>
-            {/* Nav arrows from image */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
+            {/* Nav arrows */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}>
               <div style={{
-                width: '38px',
-                height: '38px',
+                width: '36px',
+                height: '36px',
                 borderRadius: '50%',
                 border: '1px solid #e2e8f0',
                 display: 'flex',
@@ -892,8 +910,8 @@ export default function GuestLandingPage({
                 <ArrowLeft size={16} />
               </div>
               <div style={{
-                width: '38px',
-                height: '38px',
+                width: '36px',
+                height: '36px',
                 borderRadius: '50%',
                 border: '1px solid #e2e8f0',
                 display: 'flex',
@@ -908,36 +926,36 @@ export default function GuestLandingPage({
 
             {/* Destination Title */}
             <h2 style={{
-              fontSize: '2.4rem',
+              fontSize: 'clamp(1.8rem, 4.5vw, 2.4rem)',
               fontWeight: 900,
               letterSpacing: '-0.02em',
               color: '#0f172a',
-              margin: '0 0 14px',
+              margin: '0 0 12px',
             }}>
               Sidney, Australia
             </h2>
 
             <p style={{
-              fontSize: '1.05rem',
+              fontSize: 'clamp(0.92rem, 2vw, 1.05rem)',
               color: '#475569',
               lineHeight: 1.6,
-              marginBottom: '24px',
+              marginBottom: '20px',
             }}>
               This newly built one bedroom apartment is your sanctuary away from home.
               You may enjoy the weekly firework of Darling Harbour from your own balcony.
             </p>
 
             {/* Tags Pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '26px' }}>
               {['Tiny homes', 'Camping', 'Beautiful views', 'Amazing pools', '12+'].map((tag) => (
                 <span
                   key={tag}
                   style={{
-                    padding: '6px 14px',
+                    padding: '5px 12px',
                     borderRadius: '9999px',
                     background: '#f1f3f7',
                     color: '#334155',
-                    fontSize: '0.8rem',
+                    fontSize: '0.78rem',
                     fontWeight: 700,
                   }}
                 >
@@ -947,10 +965,10 @@ export default function GuestLandingPage({
             </div>
 
             {/* 3 Detail Thumbnail Cards from Image */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '14px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
               <div style={{
-                height: '110px',
-                borderRadius: '18px',
+                height: 'clamp(80px, 12vw, 110px)',
+                borderRadius: '16px',
                 overflow: 'hidden',
                 backgroundImage: 'url(/images/interior_bedside.jpg)',
                 backgroundSize: 'cover',
@@ -959,8 +977,8 @@ export default function GuestLandingPage({
               }} />
 
               <div style={{
-                height: '110px',
-                borderRadius: '18px',
+                height: 'clamp(80px, 12vw, 110px)',
+                borderRadius: '16px',
                 overflow: 'hidden',
                 backgroundImage: 'url(/images/stay_pod.jpg)',
                 backgroundSize: 'cover',
@@ -970,28 +988,28 @@ export default function GuestLandingPage({
 
               {/* Black rating card */}
               <div style={{
-                height: '110px',
-                borderRadius: '18px',
+                height: 'clamp(80px, 12vw, 110px)',
+                borderRadius: '16px',
                 background: '#111827',
                 color: '#ffffff',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '12px',
+                padding: '8px',
                 boxShadow: '0 8px 20px rgba(0,0,0,0.18)',
               }}>
-                <div style={{ fontSize: '1.9rem', fontWeight: 900, lineHeight: 1 }}>
+                <div style={{ fontSize: 'clamp(1.4rem, 2.8vw, 1.9rem)', fontWeight: 900, lineHeight: 1 }}>
                   4.9
                 </div>
-                <div style={{ display: 'flex', gap: '2px', marginTop: '4px', marginBottom: '4px' }}>
-                  <Star size={11} fill="#eab308" color="#eab308" />
-                  <Star size={11} fill="#eab308" color="#eab308" />
-                  <Star size={11} fill="#eab308" color="#eab308" />
-                  <Star size={11} fill="#eab308" color="#eab308" />
-                  <Star size={11} fill="#eab308" color="#eab308" />
+                <div style={{ display: 'flex', gap: '2px', marginTop: '3px', marginBottom: '3px' }}>
+                  <Star size={10} fill="#eab308" color="#eab308" />
+                  <Star size={10} fill="#eab308" color="#eab308" />
+                  <Star size={10} fill="#eab308" color="#eab308" />
+                  <Star size={10} fill="#eab308" color="#eab308" />
+                  <Star size={10} fill="#eab308" color="#eab308" />
                 </div>
-                <div style={{ fontSize: '0.7rem', color: '#94a3b8', fontWeight: 600 }}>
+                <div style={{ fontSize: '0.66rem', color: '#94a3b8', fontWeight: 600 }}>
                   Reviews
                 </div>
               </div>
@@ -1003,30 +1021,30 @@ export default function GuestLandingPage({
       {/* =========================================================================
           6. "WEEKLY ITINERARY" SECTION (Matches Bottom Interactive List in Image)
           ========================================================================= */}
-      <section style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '20px 24px 80px' }}>
+      <section style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '16px 16px 60px' }}>
         {/* Title + Filter Pills */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
-          gap: '16px',
-          marginBottom: '28px',
+          gap: '14px',
+          marginBottom: '24px',
         }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 900, color: '#0f172a', margin: 0, letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: 'clamp(1.6rem, 3.8vw, 2rem)', fontWeight: 900, color: '#0f172a', margin: 0, letterSpacing: '-0.02em' }}>
             Weekly Itinerary
           </h2>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
             <button
               onClick={() => setItineraryFilter('best')}
               style={{
-                padding: '8px 18px',
+                padding: '6px 14px',
                 borderRadius: '9999px',
                 border: '1px solid #e2e8f0',
                 background: itineraryFilter === 'best' ? '#111827' : '#ffffff',
                 color: itineraryFilter === 'best' ? '#ffffff' : '#334155',
-                fontSize: '0.84rem',
+                fontSize: '0.82rem',
                 fontWeight: 700,
                 cursor: 'pointer',
               }}
@@ -1036,12 +1054,12 @@ export default function GuestLandingPage({
             <button
               onClick={() => setItineraryFilter('rec')}
               style={{
-                padding: '8px 18px',
+                padding: '6px 14px',
                 borderRadius: '9999px',
                 border: 'none',
                 background: itineraryFilter === 'rec' ? '#111827' : '#ffffff',
                 color: itineraryFilter === 'rec' ? '#ffffff' : '#334155',
-                fontSize: '0.84rem',
+                fontSize: '0.82rem',
                 fontWeight: 700,
                 cursor: 'pointer',
               }}
@@ -1051,12 +1069,12 @@ export default function GuestLandingPage({
             <button
               onClick={() => setItineraryFilter('popular')}
               style={{
-                padding: '8px 18px',
+                padding: '6px 14px',
                 borderRadius: '9999px',
                 border: '1px solid #e2e8f0',
                 background: itineraryFilter === 'popular' ? '#111827' : '#ffffff',
                 color: itineraryFilter === 'popular' ? '#ffffff' : '#334155',
-                fontSize: '0.84rem',
+                fontSize: '0.82rem',
                 fontWeight: 700,
                 cursor: 'pointer',
               }}
@@ -1066,12 +1084,12 @@ export default function GuestLandingPage({
             <button
               onClick={() => setItineraryFilter('cheaper')}
               style={{
-                padding: '8px 18px',
+                padding: '6px 14px',
                 borderRadius: '9999px',
                 border: '1px solid #e2e8f0',
                 background: itineraryFilter === 'cheaper' ? '#111827' : '#ffffff',
                 color: itineraryFilter === 'cheaper' ? '#ffffff' : '#334155',
-                fontSize: '0.84rem',
+                fontSize: '0.82rem',
                 fontWeight: 700,
                 cursor: 'pointer',
               }}
@@ -1082,41 +1100,41 @@ export default function GuestLandingPage({
         </div>
 
         {/* Itinerary Accordion List */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {/* Item 1: Barcelona (Expanded in Image) */}
           <div style={{
             background: '#ffffff',
             borderRadius: '24px',
             border: '1px solid #e5e7eb',
-            padding: '28px',
+            padding: 'clamp(18px, 3vw, 28px)',
             boxShadow: '0 8px 24px rgba(0,0,0,0.04)',
           }}>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '24px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+              gap: '20px',
               alignItems: 'center',
             }}>
               {/* Left description */}
               <div>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a', margin: '0 0 10px' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', margin: '0 0 8px' }}>
                   Barcelona
                 </h3>
-                <p style={{ fontSize: '0.9rem', color: '#64748b', lineHeight: 1.6, marginBottom: '20px' }}>
+                <p style={{ fontSize: '0.88rem', color: '#64748b', lineHeight: 1.6, marginBottom: '18px' }}>
                   Providing a mix of cultural sights, iconic landmarks, authentic food experiences, and vibrant local neighborhoods.
                 </p>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <button
                     onClick={() => onOpenBooking(standardRoom)}
                     className="btn-pill-dark"
-                    style={{ padding: '9px 24px' }}
+                    style={{ padding: '8px 22px' }}
                   >
                     <span>Book</span>
                   </button>
                   <div style={{
-                    width: '36px',
-                    height: '36px',
+                    width: '34px',
+                    height: '34px',
                     borderRadius: '50%',
                     background: '#f1f5f9',
                     display: 'flex',
@@ -1124,14 +1142,14 @@ export default function GuestLandingPage({
                     justifyContent: 'center',
                     color: '#0f172a',
                   }}>
-                    <Home size={16} />
+                    <Home size={15} />
                   </div>
                 </div>
               </div>
 
               {/* Center Photo */}
               <div style={{
-                height: '180px',
+                height: '170px',
                 borderRadius: '20px',
                 overflow: 'hidden',
                 backgroundImage: 'url(/images/interior_bedside.jpg)',
@@ -1139,21 +1157,21 @@ export default function GuestLandingPage({
                 backgroundPosition: 'center',
               }} />
 
-              {/* Right Calendar Widget Card from Reference Image */}
+              {/* Right Calendar Widget Card */}
               <div style={{
                 background: '#111827',
                 borderRadius: '20px',
-                padding: '20px 24px',
+                padding: '18px 20px',
                 color: '#ffffff',
                 boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
               }}>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '2.1rem', fontWeight: 900, lineHeight: 1 }}>23</span>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '1.9rem', fontWeight: 900, lineHeight: 1 }}>23</span>
                   <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>to 26 December</span>
                 </div>
 
                 {/* Day Circles with Orange Highlights */}
-                <div style={{ display: 'flex', gap: '6px', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', gap: '4px', marginBottom: '12px', flexWrap: 'wrap' }}>
                   {[
                     { day: 'M', active: false },
                     { day: 'T', active: false },
@@ -1166,13 +1184,13 @@ export default function GuestLandingPage({
                     <div
                       key={i}
                       style={{
-                        width: '26px',
-                        height: '26px',
+                        width: '24px',
+                        height: '24px',
                         borderRadius: '50%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        fontSize: '0.72rem',
+                        fontSize: '0.68rem',
                         fontWeight: 800,
                         background: d.active ? '#ea580c' : 'rgba(255, 255, 255, 0.1)',
                         color: '#ffffff',
@@ -1183,11 +1201,11 @@ export default function GuestLandingPage({
                   ))}
                 </div>
 
-                <div style={{ fontSize: '0.8rem', color: '#cbd5e1', fontWeight: 600, marginBottom: '10px' }}>
+                <div style={{ fontSize: '0.78rem', color: '#cbd5e1', fontWeight: 600, marginBottom: '8px' }}>
                   4 Days Itinerary
                 </div>
 
-                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
                   {['Cultural', 'Beach View', '12+'].map((t) => (
                     <span
                       key={t}
@@ -1195,7 +1213,7 @@ export default function GuestLandingPage({
                         padding: '3px 8px',
                         borderRadius: '9999px',
                         background: 'rgba(255, 255, 255, 0.15)',
-                        fontSize: '0.7rem',
+                        fontSize: '0.68rem',
                         fontWeight: 700,
                       }}
                     >
@@ -1214,19 +1232,19 @@ export default function GuestLandingPage({
               background: '#ffffff',
               borderRadius: '20px',
               border: '1px solid #e5e7eb',
-              padding: '18px 24px',
+              padding: '16px 20px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
               cursor: 'pointer',
             }}
           >
-            <div style={{ fontWeight: 800, fontSize: '1.1rem', color: '#0f172a' }}>
+            <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#0f172a' }}>
               London
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', color: '#64748b', fontSize: '0.86rem', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#64748b', fontSize: '0.84rem', fontWeight: 600 }}>
               <span>4 Days Itinerary</span>
-              <Plus size={18} />
+              <Plus size={17} />
             </div>
           </div>
 
@@ -1237,19 +1255,19 @@ export default function GuestLandingPage({
               background: '#ffffff',
               borderRadius: '20px',
               border: '1px solid #e5e7eb',
-              padding: '18px 24px',
+              padding: '16px 20px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
               cursor: 'pointer',
             }}
           >
-            <div style={{ fontWeight: 800, fontSize: '1.1rem', color: '#0f172a' }}>
+            <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#0f172a' }}>
               Madrid
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', color: '#64748b', fontSize: '0.86rem', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#64748b', fontSize: '0.84rem', fontWeight: 600 }}>
               <span>4 Days Itinerary</span>
-              <Plus size={18} />
+              <Plus size={17} />
             </div>
           </div>
         </div>
@@ -1261,24 +1279,24 @@ export default function GuestLandingPage({
       <section id="lookup" style={{
         background: '#f8fafc',
         borderTop: '1px solid #e2e8f0',
-        padding: '70px 24px',
+        padding: 'clamp(40px, 6vw, 70px) 16px',
       }}>
         <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#0f172a', margin: '0 0 10px' }}>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 1.8rem)', fontWeight: 900, color: '#0f172a', margin: '0 0 10px' }}>
             Find & Manage Your Booking
           </h2>
-          <p style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '24px' }}>
+          <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '22px' }}>
             No login needed. Simply enter your Reservation ID or email to view your confirmed room, stay dates, and digital invoice.
           </p>
 
-          <form onSubmit={handleLookupBooking} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+          <form onSubmit={handleLookupBooking} style={{ display: 'flex', gap: '8px', marginBottom: '18px', flexWrap: 'wrap' }}>
             <input
               type="text"
               value={lookupQuery}
               onChange={(e) => setLookupQuery(e.target.value)}
               placeholder="e.g. RES-1003 or guest@domain.com"
               style={{
-                flex: 1,
+                flex: '1 1 200px',
                 padding: '12px 18px',
                 borderRadius: '9999px',
                 border: '1.5px solid #cbd5e1',
@@ -1287,12 +1305,13 @@ export default function GuestLandingPage({
                 fontSize: '0.9rem',
                 fontWeight: 600,
                 outline: 'none',
+                minWidth: 0,
               }}
             />
             <button
               type="submit"
               className="btn-pill-dark"
-              style={{ padding: '12px 24px' }}
+              style={{ padding: '12px 24px', flex: '0 0 auto' }}
             >
               Verify
             </button>
@@ -1320,20 +1339,26 @@ export default function GuestLandingPage({
               background: '#ffffff',
               border: '1.5px solid #111827',
               borderRadius: '24px',
-              padding: '24px',
+              padding: 'clamp(16px, 3vw, 24px)',
               textAlign: 'left',
               marginTop: '16px',
               boxShadow: '0 12px 30px rgba(0,0,0,0.06)',
             }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
                 <div>
                   <div style={{ fontSize: '0.74rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 800 }}>Reservation Found</div>
-                  <div style={{ fontSize: '1.3rem', fontWeight: 900, color: '#111827' }}>{foundReservation.reservationId}</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: 900, color: '#111827' }}>{foundReservation.reservationId}</div>
                 </div>
                 <span className="badge badge-booked">Status: {foundReservation.status}</span>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px', fontSize: '0.86rem' }}>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
+                gap: '10px',
+                marginBottom: '16px',
+                fontSize: '0.84rem',
+              }}>
                 <div><strong>Guest:</strong> {foundReservation.customer?.name}</div>
                 <div><strong>Room:</strong> Room {foundReservation.room?.roomNumber} ({foundReservation.room?.roomType})</div>
                 <div><strong>Check In:</strong> {foundReservation.checkInDate}</div>
@@ -1343,7 +1368,7 @@ export default function GuestLandingPage({
               <button
                 onClick={() => onViewBill(foundReservation.reservationId)}
                 className="btn-pill-dark"
-                style={{ padding: '8px 20px', fontSize: '0.82rem' }}
+                style={{ padding: '8px 18px', fontSize: '0.82rem' }}
               >
                 <FileText size={14} />
                 <span>View & Print Itemized Bill</span>
@@ -1359,7 +1384,7 @@ export default function GuestLandingPage({
       <footer style={{
         background: '#0a0d14',
         color: '#ffffff',
-        padding: '70px 32px 30px',
+        padding: 'clamp(40px, 6vw, 70px) clamp(16px, 4vw, 32px) 24px',
         marginTop: 'auto',
       }}>
         <div style={{ maxWidth: '1360px', margin: '0 auto' }}>
@@ -1369,21 +1394,21 @@ export default function GuestLandingPage({
             alignItems: 'flex-start',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
-            gap: '30px',
-            marginBottom: '60px',
+            gap: '24px',
+            marginBottom: '44px',
           }}>
             <div>
-              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff', letterSpacing: '-0.01em' }}>
+              <div style={{ fontSize: '0.96rem', fontWeight: 700, color: '#ffffff', letterSpacing: '-0.01em' }}>
                 © 2024 Copyright
               </div>
             </div>
 
             <div style={{ maxWidth: '440px' }}>
-              <p style={{ fontSize: '0.96rem', color: '#cbd5e1', lineHeight: 1.6, margin: '0 0 20px' }}>
+              <p style={{ fontSize: '0.92rem', color: '#cbd5e1', lineHeight: 1.6, margin: '0 0 16px' }}>
                 Uncover hidden gems, unique stays, and unforgettable experiences. With The Oasis, every journey leads to discovery.
               </p>
 
-              <div style={{ display: 'flex', gap: '16px', fontSize: '0.84rem', color: '#94a3b8' }}>
+              <div style={{ display: 'flex', gap: '14px', fontSize: '0.82rem', color: '#94a3b8', flexWrap: 'wrap' }}>
                 <span>X (Twitter)</span>
                 <span>•</span>
                 <span>Facebook</span>
@@ -1395,16 +1420,18 @@ export default function GuestLandingPage({
             </div>
           </div>
 
-          {/* Giant Brand Typography & Scroll to Top Arrow (Directly from Image) */}
+          {/* Giant Brand Typography & Scroll to Top Arrow */}
           <div style={{
             display: 'flex',
             alignItems: 'flex-end',
             justifyContent: 'space-between',
             borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-            paddingTop: '30px',
+            paddingTop: '24px',
+            flexWrap: 'wrap',
+            gap: '16px',
           }}>
             <div style={{
-              fontSize: 'clamp(3rem, 9vw, 6.8rem)',
+              fontSize: 'clamp(2.4rem, 10vw, 6.8rem)',
               fontWeight: 800,
               lineHeight: 0.9,
               letterSpacing: '-0.04em',
@@ -1416,8 +1443,8 @@ export default function GuestLandingPage({
             <button
               onClick={scrollToTop}
               style={{
-                width: '46px',
-                height: '46px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '50%',
                 background: 'rgba(255, 255, 255, 0.1)',
                 border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -1426,7 +1453,7 @@ export default function GuestLandingPage({
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
-                marginBottom: '10px',
+                marginBottom: '6px',
                 transition: 'background 0.2s',
               }}
               title="Back to top"

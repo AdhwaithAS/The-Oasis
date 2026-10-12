@@ -95,7 +95,7 @@ export default function ReservationsTable({
   };
 
   return (
-    <div className="white-card" style={{ padding: '20px 18px', overflow: 'hidden' }}>
+    <div className="white-card" style={{ padding: 'clamp(14px, 2.5vw, 22px)', overflow: 'hidden' }}>
       {/* Header and Controls */}
       <div style={{
         display: 'flex',
@@ -115,10 +115,10 @@ export default function ReservationsTable({
         </div>
 
         {/* Filter Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', flex: '1 1 300px' }}>
           {/* Internal search if no external search is given */}
           {!externalSearch && (
-            <div style={{ position: 'relative', width: '220px' }}>
+            <div style={{ position: 'relative', flex: '1 1 180px', minWidth: '160px' }}>
               <input
                 type="text"
                 placeholder="Search stays..."
@@ -144,7 +144,8 @@ export default function ReservationsTable({
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
             style={{
-              padding: '8px 16px',
+              flex: '1 1 130px',
+              padding: '8px 14px',
               borderRadius: 'var(--radius-full)',
               background: 'var(--bg-input)',
               border: '1px solid transparent',
@@ -167,7 +168,8 @@ export default function ReservationsTable({
             value={roomTypeFilter}
             onChange={(e) => setRoomTypeFilter(e.target.value)}
             style={{
-              padding: '8px 16px',
+              flex: '1 1 130px',
+              padding: '8px 14px',
               borderRadius: 'var(--radius-full)',
               background: 'var(--bg-input)',
               border: '1px solid transparent',
@@ -185,8 +187,164 @@ export default function ReservationsTable({
         </div>
       </div>
 
-      {/* Table */}
-      <div style={{ overflowX: 'auto' }}>
+      {/* Mobile Reservation Cards (< 768px) */}
+      <div className="show-on-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {filtered.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: '36px 16px', color: 'var(--text-muted)' }}>
+            <AlertTriangle size={28} style={{ marginBottom: '8px', opacity: 0.5 }} />
+            <div>No matching reservations found.</div>
+          </div>
+        ) : (
+          filtered.map((res) => (
+            <div
+              key={res.reservationId}
+              style={{
+                background: '#f8fafc',
+                border: '1px solid var(--border-light)',
+                borderRadius: '16px',
+                padding: '16px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+              }}
+            >
+              {/* Header row: ID & Status */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontWeight: 700,
+                  color: 'var(--blue-primary)',
+                  fontSize: '0.8rem',
+                  background: 'var(--blue-soft)',
+                  padding: '4px 10px',
+                  borderRadius: 'var(--radius-full)',
+                }}>
+                  {res.reservationId}
+                </span>
+                {getStatusBadge(res.status)}
+              </div>
+
+              {/* Guest & Room */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '10px' }}>
+                <div>
+                  <div style={{ fontWeight: 800, color: 'var(--text-title)', fontSize: '0.96rem' }}>
+                    {res.customer?.name}
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '2px' }}>
+                    {res.customer?.phone} • {res.customer?.email}
+                  </div>
+                </div>
+                <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                  <div style={{ fontWeight: 700, color: 'var(--text-title)', fontSize: '0.9rem' }}>
+                    Room {res.room?.roomNumber}
+                  </div>
+                  <span className={`badge ${res.room?.roomType === 'Suite' ? 'badge-suite' : 'badge-standard'}`} style={{ marginTop: '2px', display: 'inline-block' }}>
+                    {res.room?.roomType}
+                  </span>
+                </div>
+              </div>
+
+              {/* Dates & Price row */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '9px 12px',
+                background: '#ffffff',
+                borderRadius: '12px',
+                border: '1px solid #e2e8f0',
+                fontSize: '0.8rem',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600, color: 'var(--text-main)' }}>
+                  <span>{res.checkInDate}</span>
+                  <ArrowRight size={12} style={{ color: 'var(--text-muted)' }} />
+                  <span>{res.checkOutDate}</span>
+                  <span style={{ color: 'var(--text-muted)', fontWeight: 500 }}>({res.numberOfNights}n)</span>
+                </div>
+                <div style={{ fontWeight: 800, color: '#0f172a', fontSize: '0.95rem' }}>
+                  ₹{res.totalAmount.toFixed(0)}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                gap: '8px',
+                flexWrap: 'wrap',
+                paddingTop: '2px',
+                borderTop: '1px solid #f1f5f9',
+              }}>
+                {res.status === 'BOOKED' && (
+                  <button
+                    onClick={() => onCheckIn(res.reservationId)}
+                    className="btn btn-sm"
+                    style={{ background: '#dcfce7', color: '#15803d', fontWeight: 700, padding: '6px 12px' }}
+                    title="Check In Guest"
+                  >
+                    <CheckCircle2 size={13} />
+                    <span>Check In</span>
+                  </button>
+                )}
+
+                {res.status === 'CHECKED_IN' && (
+                  <button
+                    onClick={() => onCheckOut(res.reservationId)}
+                    className="btn btn-sm"
+                    style={{ background: '#e0f2fe', color: '#0369a1', fontWeight: 700, padding: '6px 12px' }}
+                    title="Check Out Guest"
+                  >
+                    <LogOut size={13} />
+                    <span>Check Out</span>
+                  </button>
+                )}
+
+                <button
+                  onClick={() => onViewBill(res.reservationId)}
+                  className="btn-circle"
+                  style={{ width: '32px', height: '32px', boxShadow: 'none', background: '#ffffff', border: '1px solid #e2e8f0' }}
+                  title="View & Print Bill"
+                >
+                  <FileText size={14} style={{ color: 'var(--blue-primary)' }} />
+                </button>
+
+                <button
+                  onClick={() => onEdit(res)}
+                  className="btn-circle"
+                  style={{ width: '32px', height: '32px', boxShadow: 'none', background: '#ffffff', border: '1px solid #e2e8f0' }}
+                  title="Edit Details"
+                >
+                  <Edit2 size={14} style={{ color: 'var(--text-main)' }} />
+                </button>
+
+                {res.status !== 'CANCELLED' && res.status !== 'CHECKED_OUT' && (
+                  <button
+                    onClick={() => onCancel(res.reservationId)}
+                    className="btn-circle"
+                    style={{ width: '32px', height: '32px', boxShadow: 'none', background: '#fff0f3', border: '1px solid #fecdd3' }}
+                    title="Cancel Reservation"
+                  >
+                    <XCircle size={14} style={{ color: '#ff6584' }} />
+                  </button>
+                )}
+
+                <button
+                  onClick={() => onDelete(res)}
+                  className="btn-circle"
+                  style={{ width: '32px', height: '32px', boxShadow: 'none', background: '#ffe4e6', border: '1px solid #fecdd3' }}
+                  title="Delete"
+                >
+                  <Trash2 size={14} style={{ color: '#e11d48' }} />
+                </button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+
+      {/* Desktop / Tablet Table (>= 768px) */}
+      <div className="hide-on-mobile scroll-touch" style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '820px' }}>
           <thead>
             <tr style={{

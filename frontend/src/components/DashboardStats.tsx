@@ -40,22 +40,22 @@ export default function DashboardStats({ stats, onNavigateTab, onOpenBooking }: 
       {/* 4 Primary Metric Cards Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-        gap: '20px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+        gap: 'clamp(12px, 2vw, 20px)',
       }}>
         {/* CARD 1: OCCUPANCY RATE */}
         <div
           className="white-card"
           onClick={() => onNavigateTab('rooms')}
           style={{
-            padding: '24px',
+            padding: 'clamp(16px, 2.5vw, 24px)',
             cursor: 'pointer',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             borderRadius: '24px',
             border: '1px solid #e5e7eb',
-            minHeight: '150px',
+            minHeight: '140px',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -110,14 +110,14 @@ export default function DashboardStats({ stats, onNavigateTab, onOpenBooking }: 
           className="white-card"
           onClick={() => onNavigateTab('reservations')}
           style={{
-            padding: '24px',
+            padding: 'clamp(16px, 2.5vw, 24px)',
             cursor: 'pointer',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             borderRadius: '24px',
             border: '1px solid #e5e7eb',
-            minHeight: '150px',
+            minHeight: '140px',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -139,7 +139,7 @@ export default function DashboardStats({ stats, onNavigateTab, onOpenBooking }: 
           </div>
 
           <div>
-            <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.03em', lineHeight: 1 }}>
+            <div style={{ fontSize: 'clamp(1.75rem, 4vw, 2.2rem)', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.03em', lineHeight: 1 }}>
               ₹{totalRevenue}
             </div>
             <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '8px', fontWeight: 600 }}>
@@ -153,14 +153,14 @@ export default function DashboardStats({ stats, onNavigateTab, onOpenBooking }: 
           className="white-card"
           onClick={() => onNavigateTab('rooms')}
           style={{
-            padding: '24px',
+            padding: 'clamp(16px, 2.5vw, 24px)',
             cursor: 'pointer',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             borderRadius: '24px',
             border: '1px solid #e5e7eb',
-            minHeight: '150px',
+            minHeight: '140px',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -183,7 +183,7 @@ export default function DashboardStats({ stats, onNavigateTab, onOpenBooking }: 
 
           <div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-              <span style={{ fontSize: '2.2rem', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.03em', lineHeight: 1 }}>
+              <span style={{ fontSize: 'clamp(1.75rem, 4vw, 2.2rem)', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.03em', lineHeight: 1 }}>
                 {availableRooms}
               </span>
               <span style={{ fontSize: '0.82rem', color: '#64748b', fontWeight: 600 }}>
@@ -201,14 +201,14 @@ export default function DashboardStats({ stats, onNavigateTab, onOpenBooking }: 
           className="white-card"
           onClick={() => onNavigateTab('reservations')}
           style={{
-            padding: '24px',
+            padding: 'clamp(16px, 2.5vw, 24px)',
             cursor: 'pointer',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             borderRadius: '24px',
             border: '1px solid #e5e7eb',
-            minHeight: '150px',
+            minHeight: '140px',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

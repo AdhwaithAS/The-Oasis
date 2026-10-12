@@ -1,9 +1,16 @@
 import './globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
   title: 'The Oasis | Curated Luxury Stays & Resort Reservations',
   description: 'The Oasis - Live luxury hotel reservation and resort sanctuary platform powered by Java and Next.js.',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#fbfbfc',
 };
 
 export default function RootLayout({
@@ -13,9 +20,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
       <body>{children}</body>
     </html>
   );

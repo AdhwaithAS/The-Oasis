@@ -31,11 +31,13 @@ export default function BillModal({ bill, isOpen, onClose }: BillModalProps) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '640px' }}>
         {/* Header */}
         <div style={{
-          padding: '24px 28px',
+          padding: 'clamp(16px, 3vw, 24px) clamp(16px, 3.5vw, 28px)',
           borderBottom: '1px solid var(--border-light)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '12px',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{
@@ -47,11 +49,12 @@ export default function BillModal({ bill, isOpen, onClose }: BillModalProps) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}>
               <FileText size={20} />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-title)' }}>
+              <h3 style={{ fontSize: 'clamp(1.1rem, 3vw, 1.25rem)', fontWeight: 800, color: 'var(--text-title)' }}>
                 Stay Bill & Receipt
               </h3>
               <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
@@ -112,16 +115,16 @@ export default function BillModal({ bill, isOpen, onClose }: BillModalProps) {
         </div>
 
         {/* Body */}
-        <div style={{ padding: '28px' }}>
+        <div style={{ padding: 'clamp(16px, 3.5vw, 28px)' }}>
           {activeView === 'invoice' ? (
             <div style={{
               background: '#f8fafc',
               border: '1px solid var(--border-light)',
               borderRadius: 'var(--radius-lg)',
-              padding: '24px',
+              padding: 'clamp(14px, 2.5vw, 24px)',
             }}>
               {/* Hotel Brand Head */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '16px', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '16px', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
                 <div>
                   <h4 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-title)', letterSpacing: '-0.02em' }}>
                     The Oasis
@@ -148,7 +151,7 @@ export default function BillModal({ bill, isOpen, onClose }: BillModalProps) {
               </div>
 
               {/* Guest & Room Details Grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+              <div className="form-grid-2" style={{ gap: '16px', marginBottom: '20px' }}>
                 <div>
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 800, marginBottom: '4px' }}>
                     Billed To
@@ -192,7 +195,7 @@ export default function BillModal({ bill, isOpen, onClose }: BillModalProps) {
               </div>
             </div>
           ) : (
-            <div className="bill-receipt">
+            <div className="bill-receipt scroll-touch">
               {bill.formattedReceipt}
             </div>
           )}
@@ -208,12 +211,12 @@ export default function BillModal({ bill, isOpen, onClose }: BillModalProps) {
               <span>{copied ? 'Copied ASCII' : 'Copy ASCII Text'}</span>
             </button>
 
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <button onClick={handlePrint} className="btn btn-secondary">
                 <Printer size={16} />
                 <span>Print Bill</span>
               </button>
-              <button onClick={onClose} className="btn btn-primary">
+              <button onClick={onClose} className="btn btn-primary" style={{ minWidth: '80px' }}>
                 Done
               </button>
             </div>

@@ -146,7 +146,7 @@ export default function BookingModal({ isOpen, onClose, onSuccess, preselectedRo
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div style={{
-          padding: '24px 28px',
+          padding: 'clamp(16px, 3vw, 24px) clamp(16px, 3.5vw, 28px)',
           borderBottom: '1px solid var(--border-light)',
           display: 'flex',
           alignItems: 'center',
@@ -162,11 +162,12 @@ export default function BookingModal({ isOpen, onClose, onSuccess, preselectedRo
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}>
               <BedDouble size={20} />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-title)' }}>
+              <h3 style={{ fontSize: 'clamp(1.1rem, 3vw, 1.25rem)', fontWeight: 800, color: 'var(--text-title)' }}>
                 New Room Booking
               </h3>
               <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
@@ -177,14 +178,14 @@ export default function BookingModal({ isOpen, onClose, onSuccess, preselectedRo
           <button
             onClick={onClose}
             className="btn-circle"
-            style={{ width: '34px', height: '34px', border: 'none', background: 'var(--bg-input)', boxShadow: 'none' }}
+            style={{ width: '34px', height: '34px', border: 'none', background: 'var(--bg-input)', boxShadow: 'none', flexShrink: 0 }}
           >
             <X size={18} />
           </button>
         </div>
 
         {/* Form Body */}
-        <form onSubmit={handleSubmit} style={{ padding: '28px' }}>
+        <form onSubmit={handleSubmit} style={{ padding: 'clamp(16px, 3.5vw, 28px)' }}>
           {errorMsg && (
             <div style={{
               display: 'flex',
@@ -242,7 +243,7 @@ export default function BookingModal({ isOpen, onClose, onSuccess, preselectedRo
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+            <div className="form-grid-2" style={{ gap: '14px' }}>
               <div className="form-group">
                 <label className="form-label">Email Address *</label>
                 <div style={{ position: 'relative' }}>
@@ -283,7 +284,7 @@ export default function BookingModal({ isOpen, onClose, onSuccess, preselectedRo
               Stay & Room Selection
             </h4>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
+            <div className="form-grid-2" style={{ gap: '14px', marginBottom: '14px' }}>
               <div className="form-group">
                 <label className="form-label">Check-in Date *</label>
                 <div style={{ position: 'relative' }}>
@@ -316,7 +317,7 @@ export default function BookingModal({ isOpen, onClose, onSuccess, preselectedRo
             </div>
 
             {/* Room Type Toggle Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
+            <div className="form-grid-2" style={{ gap: '14px', marginBottom: '14px' }}>
               <div
                 onClick={() => { setRoomType('Standard'); setSpecificRoomNumber(''); }}
                 style={{
@@ -420,15 +421,15 @@ export default function BookingModal({ isOpen, onClose, onSuccess, preselectedRo
           )}
 
           {/* Actions */}
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
-            <button type="button" onClick={onClose} disabled={submitting} className="btn btn-secondary">
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', flexWrap: 'wrap' }}>
+            <button type="button" onClick={onClose} disabled={submitting} className="btn btn-secondary" style={{ flex: '1 1 110px' }}>
               Cancel
             </button>
             <button
               type="submit"
               disabled={submitting || (availableRooms.length === 0 && !loadingRooms)}
               className="btn btn-primary"
-              style={{ minWidth: '160px' }}
+              style={{ flex: '1 1 180px' }}
             >
               {submitting ? 'Confirming...' : 'Confirm Reservation'}
             </button>

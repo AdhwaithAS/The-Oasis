@@ -127,7 +127,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           maxWidth: '960px',
           width: '100%',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
           borderRadius: '24px',
           padding: 0,
           background: '#ffffff',
@@ -142,8 +142,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           aria-label="Close modal"
           style={{
             position: 'absolute',
-            top: '20px',
-            right: '20px',
+            top: '16px',
+            right: '16px',
             zIndex: 30,
             width: '36px',
             height: '36px',
@@ -162,15 +162,15 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           <X size={18} />
         </button>
 
-        {/* LEFT COLUMN: Clean Form Area (Exact screenshot layout) */}
+        {/* LEFT COLUMN: Clean Form Area */}
         <div
           style={{
-            padding: '40px 48px',
+            padding: 'clamp(24px, 4vw, 40px) clamp(18px, 4vw, 44px)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             background: '#ffffff',
-            minHeight: '580px',
+            minHeight: 'auto',
           }}
         >
           <div>
@@ -616,7 +616,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 </div>
 
                 {/* Password & Phone Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '10px' }}>
+                <div className="form-grid-2" style={{ gap: '8px', marginBottom: '10px' }}>
                   <div
                     style={{
                       border: '1.5px solid #E5E7EB',
@@ -910,7 +910,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         </div>
 
         {/* RIGHT COLUMN: 3D Isometric Safe / Vault on Sky Blue Gradient */}
-        <div style={{ display: 'flex', alignItems: 'stretch' }}>
+        <div className="hide-on-mobile" style={{ display: 'flex', alignItems: 'stretch' }}>
           <SafeIllustration />
         </div>
       </div>

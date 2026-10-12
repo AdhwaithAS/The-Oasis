@@ -27,7 +27,7 @@ export default function AuditLogsTable() {
   }, []);
 
   return (
-    <div className="white-card" style={{ padding: '24px 20px', overflow: 'hidden' }}>
+    <div className="white-card" style={{ padding: 'clamp(14px, 2.5vw, 22px)', overflow: 'hidden' }}>
       {/* Header */}
       <div style={{
         display: 'flex',
@@ -98,8 +98,8 @@ export default function AuditLogsTable() {
       )}
 
       {/* Table */}
-      <div style={{ overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
+      <div className="scroll-touch" style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem', minWidth: '650px' }}>
           <thead>
             <tr style={{ borderBottom: '1.5px solid #e2e8f0', color: '#64748b', fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               <th style={{ padding: '12px 14px' }}>Timestamp</th>

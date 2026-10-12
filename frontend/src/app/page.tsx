@@ -248,25 +248,26 @@ export default function HomePage() {
       {toast && (
         <div style={{
           position: 'fixed',
-          bottom: '24px',
-          right: '24px',
+          bottom: '80px',
+          right: '16px',
+          maxWidth: 'calc(100vw - 32px)',
           zIndex: 2000,
           background: '#ffffff',
           border: `1.5px solid ${toast.type === 'error' ? '#fecaca' : toast.type === 'info' ? '#bae6fd' : '#bbf7d0'}`,
           borderRadius: '14px',
-          padding: '14px 20px',
+          padding: '12px 18px',
           color: '#0f172a',
           display: 'flex',
           alignItems: 'center',
           gap: '10px',
           boxShadow: '0 15px 35px -5px rgba(0,0,0,0.15)',
-          fontSize: '0.88rem',
+          fontSize: '0.86rem',
           fontWeight: 700,
         }}>
           {toast.type === 'error' ? (
-            <AlertCircle size={18} style={{ color: '#dc2626' }} />
+            <AlertCircle size={18} style={{ color: '#dc2626', flexShrink: 0 }} />
           ) : (
-            <CheckCircle size={18} style={{ color: '#16a34a' }} />
+            <CheckCircle size={18} style={{ color: '#16a34a', flexShrink: 0 }} />
           )}
           <span>{toast.message}</span>
         </div>
@@ -293,7 +294,7 @@ export default function HomePage() {
         maxWidth: '1400px',
         width: '100%',
         margin: '0 auto',
-        padding: '28px 24px 60px',
+        padding: 'clamp(16px, 3vw, 28px) clamp(14px, 3vw, 24px) 84px',
       }}>
         {/* TAB 1: DASHBOARD */}
         {activeTab === 'dashboard' && (
@@ -302,14 +303,14 @@ export default function HomePage() {
             <div style={{
               background: 'linear-gradient(135deg, #111827 0%, #030712 100%)',
               borderRadius: '24px',
-              padding: '28px 32px',
-              marginBottom: '24px',
+              padding: 'clamp(18px, 3vw, 28px) clamp(16px, 3vw, 32px)',
+              marginBottom: '20px',
               color: '#ffffff',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
               flexWrap: 'wrap',
-              gap: '20px',
+              gap: '16px',
               boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.25)',
               border: '1px solid rgba(255, 255, 255, 0.08)',
             }}>
@@ -321,42 +322,42 @@ export default function HomePage() {
                   background: 'rgba(255, 255, 255, 0.1)',
                   padding: '4px 12px',
                   borderRadius: '9999px',
-                  fontSize: '0.76rem',
+                  fontSize: '0.74rem',
                   fontWeight: 700,
-                  marginBottom: '10px',
+                  marginBottom: '8px',
                   backdropFilter: 'blur(10px)',
                 }}>
                   <span>The Oasis Luxury Stays</span>
                   <span>•</span>
                   <span>{currentUser ? currentUser.role : 'Guest'} Console</span>
                 </div>
-                <h2 style={{ fontSize: '1.75rem', fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>
+                <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 1.75rem)', fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>
                   Welcome, {currentUser ? currentUser.name : 'Guest'}
                 </h2>
-                <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginTop: '6px', margin: '6px 0 0' }}>
+                <p style={{ fontSize: '0.84rem', color: '#94a3b8', marginTop: '4px', margin: '4px 0 0' }}>
                   Live hotel operations & guest reservation directory.
                 </p>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                 <button
                   onClick={() => setActiveTab('rooms')}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '10px 20px',
+                    padding: '8px 16px',
                     borderRadius: '9999px',
                     border: '1px solid rgba(255, 255, 255, 0.2)',
                     background: 'rgba(255, 255, 255, 0.08)',
                     color: '#ffffff',
-                    fontSize: '0.86rem',
+                    fontSize: '0.82rem',
                     fontWeight: 700,
                     cursor: 'pointer',
                     transition: 'all 0.2s',
                   }}
                 >
-                  <BedDouble size={16} />
+                  <BedDouble size={15} />
                   <span>View All Rooms</span>
                 </button>
 
@@ -367,19 +368,19 @@ export default function HomePage() {
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '6px',
-                      padding: '10px 20px',
+                      padding: '8px 16px',
                       borderRadius: '9999px',
                       border: '1px solid rgba(255, 255, 255, 0.25)',
                       background: 'rgba(255, 255, 255, 0.15)',
                       color: '#ffffff',
-                      fontSize: '0.86rem',
+                      fontSize: '0.82rem',
                       fontWeight: 700,
                       cursor: 'pointer',
                       transition: 'all 0.2s',
                     }}
                   >
-                    <UserPlus size={16} />
-                    <span>Add Staff / Admin</span>
+                    <UserPlus size={15} />
+                    <span>Add Staff</span>
                   </button>
                 )}
 
@@ -392,19 +393,19 @@ export default function HomePage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '10px 22px',
+                    padding: '8px 18px',
                     borderRadius: '9999px',
                     border: 'none',
                     background: '#ffffff',
                     color: '#111827',
-                    fontSize: '0.86rem',
+                    fontSize: '0.82rem',
                     fontWeight: 800,
                     cursor: 'pointer',
                     boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)',
                     transition: 'all 0.2s',
                   }}
                 >
-                  <Plus size={16} />
+                  <Plus size={15} />
                   <span>Book a Room</span>
                 </button>
               </div>
@@ -421,13 +422,13 @@ export default function HomePage() {
             />
 
             {/* Active Reservations Section */}
-            <div style={{ marginBottom: '32px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+            <div style={{ marginBottom: '28px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
                 <div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: 0, letterSpacing: '-0.02em' }}>
+                  <h3 style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)', fontWeight: 800, color: '#0f172a', margin: 0, letterSpacing: '-0.02em' }}>
                     {currentUser?.role === 'GUEST' ? 'Your Active Bookings' : 'Active Guest Reservations'}
                   </h3>
-                  <p style={{ fontSize: '0.8rem', color: '#64748b', margin: '2px 0 0' }}>
+                  <p style={{ fontSize: '0.78rem', color: '#64748b', margin: '2px 0 0' }}>
                     Manage check-ins, check-outs, itemized invoices, and customer stay details.
                   </p>
                 </div>

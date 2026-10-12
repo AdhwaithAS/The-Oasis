@@ -92,14 +92,14 @@ export default function EditReservationModal({
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div style={{
-          padding: '24px 28px',
+          padding: 'clamp(16px, 3vw, 24px) clamp(16px, 3.5vw, 28px)',
           borderBottom: '1px solid var(--border-light)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
         }}>
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-title)' }}>
+            <h3 style={{ fontSize: 'clamp(1.1rem, 3vw, 1.25rem)', fontWeight: 800, color: 'var(--text-title)' }}>
               Edit Reservation {reservation.reservationId}
             </h3>
             <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
@@ -109,14 +109,14 @@ export default function EditReservationModal({
           <button
             onClick={onClose}
             className="btn-circle"
-            style={{ width: '34px', height: '34px', border: 'none', background: 'var(--bg-input)', boxShadow: 'none' }}
+            style={{ width: '34px', height: '34px', border: 'none', background: 'var(--bg-input)', boxShadow: 'none', flexShrink: 0 }}
           >
             <X size={18} />
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} style={{ padding: '28px' }}>
+        <form onSubmit={handleSubmit} style={{ padding: 'clamp(16px, 3.5vw, 28px)' }}>
           {errorMsg && (
             <div style={{
               display: 'flex',
@@ -146,7 +146,7 @@ export default function EditReservationModal({
             />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="form-grid-2" style={{ gap: '14px' }}>
             <div className="form-group">
               <label className="form-label">Email</label>
               <input
@@ -169,7 +169,7 @@ export default function EditReservationModal({
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="form-grid-2" style={{ gap: '14px' }}>
             <div className="form-group">
               <label className="form-label">Check-in Date</label>
               <input
@@ -217,11 +217,11 @@ export default function EditReservationModal({
             />
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginTop: '20px' }}>
-            <button type="button" onClick={onClose} className="btn btn-secondary">
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
+            <button type="button" onClick={onClose} className="btn btn-secondary" style={{ flex: '1 1 100px' }}>
               Cancel
             </button>
-            <button type="submit" disabled={saving} className="btn btn-primary">
+            <button type="submit" disabled={saving} className="btn btn-primary" style={{ flex: '1 1 140px' }}>
               <Save size={16} />
               <span>{saving ? 'Updating...' : 'Save Changes'}</span>
             </button>

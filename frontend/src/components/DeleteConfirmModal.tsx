@@ -40,7 +40,7 @@ export default function DeleteConfirmModal({
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '460px' }}>
-        <div style={{ padding: '28px' }}>
+        <div style={{ padding: 'clamp(18px, 4vw, 28px)' }}>
           <div style={{
             width: '48px',
             height: '48px',
@@ -55,7 +55,7 @@ export default function DeleteConfirmModal({
             <AlertTriangle size={22} />
           </div>
 
-          <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-title)', marginBottom: '8px' }}>
+          <h3 style={{ fontSize: 'clamp(1.1rem, 3vw, 1.25rem)', fontWeight: 800, color: 'var(--text-title)', marginBottom: '8px' }}>
             Confirm Reservation Deletion
           </h3>
 
@@ -92,8 +92,8 @@ export default function DeleteConfirmModal({
             <div>• Status: <strong style={{ textTransform: 'capitalize' }}>{reservation.status}</strong></div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
-            <button type="button" onClick={onClose} disabled={deleting} className="btn btn-secondary">
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', flexWrap: 'wrap' }}>
+            <button type="button" onClick={onClose} disabled={deleting} className="btn btn-secondary" style={{ flex: '1 1 100px' }}>
               Cancel
             </button>
             <button
@@ -101,7 +101,7 @@ export default function DeleteConfirmModal({
               onClick={handleDelete}
               disabled={deleting}
               className="btn btn-sm"
-              style={{ background: '#e11d48', color: '#ffffff', padding: '10px 20px', fontWeight: 700 }}
+              style={{ background: '#e11d48', color: '#ffffff', padding: '10px 20px', fontWeight: 700, flex: '1 1 140px', justifyContent: 'center' }}
             >
               <Trash2 size={16} />
               <span>{deleting ? 'Deleting...' : 'Yes, Delete'}</span>

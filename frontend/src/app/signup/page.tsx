@@ -100,7 +100,7 @@ export default function SignupPage() {
         width: '100%',
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: '28px 32px 16px',
+        padding: 'clamp(16px, 3vw, 28px) clamp(16px, 3vw, 32px) 16px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -154,7 +154,7 @@ export default function SignupPage() {
             }} />
           </div>
           <span style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
             fontWeight: 700,
             letterSpacing: '-0.02em',
           }}>
@@ -188,7 +188,7 @@ export default function SignupPage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px 20px 100px',
+        padding: '16px clamp(12px, 3vw, 20px) 80px',
         position: 'relative',
         zIndex: 10,
       }}>
@@ -198,7 +198,7 @@ export default function SignupPage() {
           maxWidth: '440px',
           background: '#ffffff',
           borderRadius: '20px',
-          padding: '36px 32px 30px',
+          padding: 'clamp(24px, 4vw, 36px) clamp(18px, 4vw, 32px) clamp(20px, 4vw, 30px)',
           boxShadow: '0 20px 48px -10px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.04)',
           border: '1px solid rgba(0, 0, 0, 0.06)',
           position: 'relative',

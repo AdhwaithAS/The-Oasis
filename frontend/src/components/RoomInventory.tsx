@@ -13,7 +13,7 @@ export default function RoomInventory({ rooms, onBookRoom }: RoomInventoryProps)
   return (
     <div>
       <div style={{ marginBottom: '24px' }}>
-        <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-title)', letterSpacing: '-0.02em' }}>
+        <h3 style={{ fontSize: 'clamp(1.15rem, 3.5vw, 1.35rem)', fontWeight: 800, color: 'var(--text-title)', letterSpacing: '-0.02em' }}>
           Curated Stays & Private Sanctuaries
         </h3>
         <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', marginTop: '2px' }}>
@@ -24,8 +24,8 @@ export default function RoomInventory({ rooms, onBookRoom }: RoomInventoryProps)
       {/* Grid of rooms */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))',
-        gap: '20px',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+        gap: 'clamp(14px, 2vw, 20px)',
       }}>
         {rooms.map((room) => {
           const isSuite = room.roomType === 'Suite';
@@ -34,7 +34,7 @@ export default function RoomInventory({ rooms, onBookRoom }: RoomInventoryProps)
               key={room.roomNumber}
               className="white-card"
               style={{
-                padding: '24px',
+                padding: 'clamp(16px, 2.5vw, 24px)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',

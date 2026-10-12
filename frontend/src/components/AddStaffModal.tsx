@@ -87,7 +87,7 @@ export default function AddStaffModal({ isOpen, onClose, onSuccess }: AddStaffMo
       <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '480px' }}>
         {/* Header */}
         <div style={{
-          padding: '24px 28px',
+          padding: 'clamp(16px, 3vw, 24px) clamp(16px, 3.5vw, 28px)',
           borderBottom: '1px solid var(--border-light)',
           display: 'flex',
           alignItems: 'center',
@@ -103,11 +103,12 @@ export default function AddStaffModal({ isOpen, onClose, onSuccess }: AddStaffMo
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}>
               <ShieldCheck size={22} />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-title)', margin: 0 }}>
+              <h3 style={{ fontSize: 'clamp(1.1rem, 3vw, 1.25rem)', fontWeight: 800, color: 'var(--text-title)', margin: 0 }}>
                 Add Staff or Administrator
               </h3>
               <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '2px 0 0' }}>
@@ -118,14 +119,14 @@ export default function AddStaffModal({ isOpen, onClose, onSuccess }: AddStaffMo
           <button
             onClick={onClose}
             className="btn-circle"
-            style={{ width: '34px', height: '34px', border: 'none', background: 'var(--bg-input)', boxShadow: 'none' }}
+            style={{ width: '34px', height: '34px', border: 'none', background: 'var(--bg-input)', boxShadow: 'none', flexShrink: 0 }}
           >
             <X size={18} />
           </button>
         </div>
 
         {/* Form Body */}
-        <form onSubmit={handleSubmit} style={{ padding: '28px' }}>
+        <form onSubmit={handleSubmit} style={{ padding: 'clamp(16px, 3.5vw, 28px)' }}>
           {errorMsg && (
             <div style={{
               display: 'flex',
@@ -165,7 +166,7 @@ export default function AddStaffModal({ isOpen, onClose, onSuccess }: AddStaffMo
           {/* Role Choice */}
           <div style={{ marginBottom: '18px' }}>
             <label className="form-label">Role Permission *</label>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="form-grid-2" style={{ gap: '12px' }}>
               <button
                 type="button"
                 onClick={() => setRole('STAFF')}
@@ -300,15 +301,15 @@ export default function AddStaffModal({ isOpen, onClose, onSuccess }: AddStaffMo
           </div>
 
           {/* Action buttons */}
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
-            <button type="button" onClick={onClose} disabled={loading} className="btn btn-secondary">
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', flexWrap: 'wrap' }}>
+            <button type="button" onClick={onClose} disabled={loading} className="btn btn-secondary" style={{ flex: '1 1 100px' }}>
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
               className="btn btn-primary"
-              style={{ minWidth: '160px' }}
+              style={{ flex: '1 1 160px' }}
             >
               {loading ? 'Creating...' : `Create ${role === 'STAFF' ? 'Staff' : 'Admin'} User`}
             </button>
